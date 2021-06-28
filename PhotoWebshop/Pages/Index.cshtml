@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+}
+
+@using Microsoft.Extensions.Configuration;
+
+<link rel="stylesheet" type="text/css" runat="server" href="~/css/index.css" />
+
+<script src="~/js/index.js"></script>
+
+<div id="product-list">
+
+    @foreach (var product in Model.Products)
+    {
+        string imageUrl = Model.ImagePath + product.ImageName;
+
+        <div class="product-outer-div border">
+            <img class="product-thumbnail" src="@imageUrl" />
+            <div class="product-description">
+                <p>@product.Title</p>
+                <p>€@product.Price</p>
+                <button onclick="goToProduct('@product.Title')" type="button" class="btn btn-primary">Bekijken</button>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+
+
+

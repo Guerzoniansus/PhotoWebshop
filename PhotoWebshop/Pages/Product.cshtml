@@ -1,0 +1,27 @@
+﻿@page
+@model PhotoWebshop.Pages.ProductModel
+@{
+
+    <script src="~/js/product.js"></script>
+
+    if (Model.Product == null)
+    {
+        <h1>This product does not exist!</h1>
+    }
+
+    else
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-7">
+                    <h3>@Model.Product.Title</h3>
+                    <h3>€@Model.Product.Price</h3>
+                    <img class="product-thumbnail" style="max-width: 100%" src="~/images/@Model.Product.ImageName" />
+                </div>
+                <div class="col-5">
+                    <button onclick="goToCart('@Model.Product.Title')" type="button" class="btn btn-success">Bestellen</button>
+                </div>
+            </div>
+        </div>
+    }
+}
